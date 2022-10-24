@@ -17,6 +17,7 @@ sl.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 # Add list of fruit from external link
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+my_fruit_list = my_fruit_list.set_index("Fruit")
 
 # Add picklist so users can choose fruit from list
 sl.multiselect("Pick some fruits:",list(my_fruit_list.index))
