@@ -19,8 +19,8 @@ sl.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index("Fruit")
 
-# Add picklist so users can choose fruit from list
-sl.multiselect("Pick some fruits:",list(my_fruit_list.index))
+# Add picklist so users can choose fruit from list and set examples in [ ]
+sl.multiselect("Pick some fruits:",list(my_fruit_list.index),['Avocado','Strawberries'])
 
 # Display list in table
 sl.dataframe(my_fruit_list)
