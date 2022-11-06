@@ -42,7 +42,6 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 sl.dataframe(fruityvice_normalized)
 
 # # Add Title for Snowflake and Query Data from Snowflake
-sl.header("Query Data from Snowflake!")
 my_cnx = sfc.connect(**sl.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 ## my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()") -OLD
