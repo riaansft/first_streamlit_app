@@ -53,4 +53,5 @@ sl.dataframe(my_data_rows)
 
 # Add another input box to add fruit!
 add_my_fruit = sl.text_input('What fruit would you like to add?','Kiwi')
-sl.write('The user entered',add_my_fruit)
+sl.write('Thanks for adding ',add_my_fruit)
+my_cur.execute("insert_into_fruit_load_list values ('from sl')")
