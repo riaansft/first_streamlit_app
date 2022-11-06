@@ -46,6 +46,7 @@ my_cnx = sfc.connect(**sl.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 ## my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()") -OLD
 my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
-my_data_row = my_cur.fetchone()
+# my_data_row = my_cur.fetchone() -- Fetches only 1 record
+my_data_rows = my_cur.fetchall() # Fetches all records
 sl.header("The Fruit Load List Contains:")
-sl.dataframe(my_data_row)
+sl.dataframe(my_data_rows)
