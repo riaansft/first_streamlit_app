@@ -48,5 +48,5 @@ my_cur = my_cnx.cursor()
 ## my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()") -OLD
 my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
 my_data_row = my_cur.fetchone()
-sl.text("The Fruit Load List Contains:")
-sl.text(my_data_row)
+sl.header("The Fruit Load List Contains:")
+sl.dataframe(my_data_row)
