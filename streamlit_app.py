@@ -32,7 +32,7 @@ sl.dataframe(fruits_to_show)
 
 # Add Fruityvice advice
 sl.header('Fruityvice Fruit Advice!')
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ "kiwi")
 
 # Normalize JSON response & show data in dataframe
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
