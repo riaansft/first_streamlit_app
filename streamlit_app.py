@@ -2,6 +2,7 @@ import streamlit as sl
 import pandas as pd
 import requests
 import snowflake.connector as sfc
+from urllib.error import URLError
 
 # Add Main Title
 sl.title('My Parents New Healthy Diner.')
@@ -40,6 +41,8 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_ch
 # Normalize JSON response & show data in dataframe
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 sl.dataframe(fruityvice_normalized)
+
+sl.stop()
 
 # # Add Title for Snowflake and Query Data from Snowflake
 my_cnx = sfc.connect(**sl.secrets["snowflake"])
