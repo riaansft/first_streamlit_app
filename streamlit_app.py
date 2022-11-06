@@ -31,7 +31,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 # Display selected items in table
 sl.dataframe(fruits_to_show)
 
-# Add Fruityvice advice!
+# Add Title for Fruityvice advice!
 sl.header('Fruityvice Fruit Advice!')
 fruit_choice = sl.text_input('What fruit would you like information about?','Kiwi')
 sl.write('The user entered',fruit_choice)
@@ -41,7 +41,8 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_ch
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 sl.dataframe(fruityvice_normalized)
 
-# Query Data from Snowflake
+# # Add Title for Snowflake and Query Data from Snowflake
+sl.header("Query Data from Snowflake!")
 my_cnx = sfc.connect(**sl.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
