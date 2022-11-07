@@ -45,7 +45,7 @@ try:
   if not fruit_choice:
     sl.error("Please select a fruit to get information.")
   else:
-    back_from_function = get_fruitice_data(fruit_choice)
+    back_from_function = get_fruityvice_data(fruit_choice)
     sl.dataframe(back_from_function)
 except URLError as e:
   sl.error()
