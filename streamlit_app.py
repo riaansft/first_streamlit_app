@@ -52,15 +52,19 @@ except URLError as e:
                                          
 sl.stop()
 
-# # Add Title for Snowflake and Query Data from Snowflake
-my_cnx = sfc.connect(**sl.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-## my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()") -OLD
-my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
-# my_data_row = my_cur.fetchone() -- Fetches only 1 record
-my_data_rows = my_cur.fetchall() # Fetches all records
+# Add Title for Snowflake and Query Data from Snowflake
 sl.header("The Fruit Load List Contains:")
-sl.dataframe(my_data_rows)
+# Snowflake-related Function
+def get_fruit_load_list():
+  with my_cnx.cursor() as my_cur:
+    my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
+    return my_cur.fetchall() # Fetches all records
+  
+# Add a button to load the fruit
+if sl.button('Get fruit load list')
+  my_cnx = sfc.connect(**sl.secrets["snowflake"])
+  my_data_rows = get_fruit_load_list()  
+  sl.dataframe(my_data_rows)
 
 # Add another input box to add fruit!
 add_my_fruit = sl.text_input('What fruit would you like to add?','Kiwi')
