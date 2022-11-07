@@ -49,8 +49,6 @@ try:
     sl.dataframe(back_from_function)
 except URLError as e:
   sl.error()
-                                         
-sl.stop()
 
 # Add Title for Snowflake and Query Data from Snowflake
 sl.header("The Fruit Load List Contains:")
