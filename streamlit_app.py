@@ -32,16 +32,19 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 # Display selected items in table
 sl.dataframe(fruits_to_show)
 
-# Add Title for Fruityvice advice!
+# New section to show Fruitvice API & Add Title for Fruityvice advice!
 sl.header('Fruityvice Fruit Advice!')
-fruit_choice = sl.text_input('What fruit would you like information about?','Kiwi')
-sl.write('The user entered',fruit_choice)
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
-
-# Normalize JSON response & show data in dataframe
-fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-sl.dataframe(fruityvice_normalized)
-
+try:
+  fruit_choice = sl.text_input('What fruit would you like information about?')
+    if not fruit_choice:
+      sl.error("Please select a fruit to get information.")
+    else:
+      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice
+      fruityvice_normalized = pd.json_normalize(fruityvice_response.json()) # Normalize JSON response & show data in dataframe
+      sl.dataframe(fruityvice_normalized)
+except URLError as e:
+  sl.error()
+                                         
 sl.stop()
 
 # # Add Title for Snowflake and Query Data from Snowflake
