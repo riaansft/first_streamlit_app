@@ -66,7 +66,7 @@ if sl.button('Get fruit load list'):
 
 # Add another input box to add fruit!
 def insert_row_snowflake(new_fruit):
-  with my_cur.curson() as my_cur:
+  with my_cnx.cursor() as my_cur:
     my_cur.execute("INSERT INTO fruit_load_list VALUES ('from sl')")
     return "Thanks for adding " + new_fruit
     
