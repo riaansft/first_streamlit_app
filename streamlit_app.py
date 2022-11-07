@@ -67,6 +67,13 @@ if sl.button('Get fruit load list'):
 sl.stop()
 
 # Add another input box to add fruit!
-add_my_fruit = sl.text_input('What fruit would you like to add?','Kiwi')
-sl.write('Thanks for adding ',add_my_fruit)
-my_cur.execute("INSERT INTO fruit_load_list VALUES ('from sl')")
+def insert_row_snowflake(new_fruit):
+  with my_cur.curson() as my_cur:
+    my_cur.execute("INSERT INTO fruit_load_list VALUES ('from sl')")
+    return "Thanks for adding " + new_fruit
+    
+add_my_fruit = sl.text_input('What fruit would you like to add?')
+if sl.button("Add a Fruit to the List."):
+  my_cnx = sfc.connect(**sl.secrets["snowflake"])
+  back_from_the_function = insert_row_snowflake(add_my_fruit)
+  sl.text(back_from_the_function)
