@@ -63,8 +63,6 @@ if sl.button('Get fruit load list'):
   my_cnx = sfc.connect(**sl.secrets["snowflake"])
   my_data_rows = get_fruit_load_list()  
   sl.dataframe(my_data_rows)
-  
-sl.stop()
 
 # Add another input box to add fruit!
 def insert_row_snowflake(new_fruit):
