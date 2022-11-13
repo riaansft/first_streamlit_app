@@ -75,3 +75,5 @@ if sl.button("Add a Fruit to the List."):
   my_cnx = sfc.connect(**sl.secrets["snowflake"])
   back_from_the_function = insert_row_snowflake(add_my_fruit)
   sl.text(back_from_the_function)
+  
+"hello **world!**"
